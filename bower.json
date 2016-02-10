@@ -1,0 +1,17 @@
+{
+  "name": "angularstudy",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~4.0.0-alpha",
+    "angular": "~v1.5.0",
+    "angular-resource": "~v1.5.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": "dist/css/bootstrap.css"
+    }
+  },
+  "devDependencies": {
+    "angular-mocks": "~v1.5.0"
+  }
+}
