@@ -28,7 +28,6 @@ module.exports = function(config) {
       'app/components/home/home.js',
       'app/components/test1/test1.js',
       'app/directives/label/label.js',
-      'app/directivestest/test.js',
       'app/scripts/config.js',
       'app/service/gruntfiles/gruntfiles.js',
       'app/service/itemdictionary/itemdictionary.js',

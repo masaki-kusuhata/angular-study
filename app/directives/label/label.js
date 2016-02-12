@@ -10,7 +10,7 @@
     .module('angularstudy.directive.label', [
       'angularstudy.service.itemdictionary'
     ])
-    .directive('angularstudyLabel', LabelDirective);
+    .directive('lawsonMultiLang', LabelDirective);
 
   LabelDirective.$inject = [
     'ItemDictionaryService'
@@ -24,12 +24,11 @@
    */
   function LabelDirective(ItemDictionaryService) {
     function labelLink(scope, element, attrs) {
-      console.log();
+      console.log(attrs);
       ItemDictionaryService.get(
-        attrs.angularstudyForm,
-        attrs.angularstudyLabel
+        attrs.lawsonFormid,
+        attrs.lawsonLabelid
       ).then(function(res) {
-        console.log('1');
         element[0].innerHTML = res;
       });
     }
