@@ -8,20 +8,26 @@
   'use strict';
 
   angular
-    .module('angularstudy.components.test1', [])
+    .module('angularstudy.components.test1', [
+      'angularstudy.service.itemdictionary',
+      'angularstudy.directive.label'
+    ])
     .component('test1Controller', {
       controller: Test1Controller,
       templateUrl: 'components/test1/test1.html',
       $canActivate: $canActivate
     });
 
-  Test1Controller.$inject = [];
+  Test1Controller.$inject = [
+    'ItemDictionaryService'
+  ];
 
   var ctrl;
 
-  function Test1Controller() {
+  function Test1Controller(ItemDictionaryService) {
     console.log('Test1Controller Constructor');
     ctrl = this;
+    ctrl.ItemDictionaryService = ItemDictionaryService;
   }
 
   function $canActivate() {
@@ -31,6 +37,5 @@
 
   Test1Controller.prototype.$onInit = function() {
     console.log('Test1Controller $onInit');
-    ctrl.name = 'Test1';
   };
 })();

@@ -30,7 +30,7 @@
     $router.config([
       {path: '/home',    name:'Home',    component: 'homeController', useAsDefault: true},
       {path: '/about',   name:'About',   component: 'aboutController'},
-      {path: '/test1',   name:'Test1',   component: 'Test1Controller'},
+      {path: '/test1',   name:'Test1',   component: 'test1Controller'},
       {path: '/contact', name:'Contact', component: 'contactController'}
     ]);
   }
