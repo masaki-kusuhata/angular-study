@@ -10,7 +10,8 @@
   angular
     .module('angularstudy.components.test1', [
       'angularstudy.service.itemdictionary',
-      'angularstudy.directive.label'
+      'angularstudy.directive.label',
+      'ngCookies'
     ])
     .component('test1Controller', {
       controller: Test1Controller,
@@ -19,15 +20,15 @@
     });
 
   Test1Controller.$inject = [
-    'ItemDictionaryService'
+    'ItemDictionaryService',
+    '$cookies'
   ];
 
   var ctrl;
 
-  function Test1Controller(ItemDictionaryService) {
+  function Test1Controller(ItemDictionaryService, $cookies) {
     console.log('Test1Controller Constructor');
     ctrl = this;
-    ctrl.ItemDictionaryService = ItemDictionaryService;
   }
 
   function $canActivate() {

@@ -37,6 +37,7 @@
     var someProperty = {};
 
     var getSelectedCulture = function() {
+      LanguageManagerService.saveSelected();
       return LanguageManagerService.selectedCulture();
     };
 

@@ -33,7 +33,7 @@
      * @default "foo"
      */
     var systemConstant = {
-      cookieKey: 'test'
+      cookieKey: 'cookie'
     };
     var cookieValue = {
       language: 'JP'
@@ -47,7 +47,7 @@
 
     var languagemanagerService = {
       selectedCulture: function() {
-        var LanguageID = angular.fromJson($cookies.get('cookie')).language;
+        var LanguageID = angular.fromJson($cookies.get(systemConstant.cookieKey)).language;
         return CULTURE[LanguageID];
       },
       saveSelected: function() {
