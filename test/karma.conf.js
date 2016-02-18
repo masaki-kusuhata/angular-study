@@ -24,6 +24,7 @@ module.exports = function(config) {
       // endbower
       // injector:js
       'app/components/about/about.js',
+      'app/components/bilabel/bilabel.js',
       'app/components/contact/contact.js',
       'app/components/home/home.js',
       'app/components/test1/test1.js',
@@ -34,6 +35,7 @@ module.exports = function(config) {
       'app/service/languagemanager/languagemanager.js',
       'app/service/languageresources/languageresources.js',
       'test/components/about/about.spec.js',
+      'test/components/bilabel/bilabel.spec.js',
       'test/components/contact/contact.spec.js',
       'test/components/home/home.spec.js',
       'test/components/test1/test1.spec.js',

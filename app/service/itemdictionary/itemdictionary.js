@@ -1,5 +1,5 @@
 /**
- * ItemDictionary Service module.
+ * Label名を取得するservice
  *
  * @module angularstudy.service.itemdictionary
  */
@@ -25,17 +25,6 @@
    * @constructor
    */
   function ItemDictionaryService(LanguageManagerService, $http, $q) {
-
-    /**
-     * My property description.  Like other pieces of your comment blocks,
-     * this can span multiple lines.
-     *
-     * @property propertyName
-     * @type {Object}
-     * @default "foo"
-     */
-    var someProperty = {};
-
     var getSelectedCulture = function() {
       LanguageManagerService.saveSelected();
       return LanguageManagerService.selectedCulture();
@@ -43,22 +32,22 @@
 
     var itemdictionaryService = {
       get: function(programID, labelID) {
-        return $q(function(resolve, reject) {
-          var culture = getSelectedCulture();
-          $http({
-            method: 'GET',
-            url: '../../resources/' + programID + '/' + programID + '.' + culture + '.json'
-          }).then(function successCallback(response) {
-            console.log(angular.fromJson(response.data)[labelID]);
-            return resolve(angular.fromJson(response.data)[labelID]);
-          }, function errorCallback(response) {
-            console.log(response);
-            return reject();
-          });
+        var deferred = $q.defer();
+        $http({
+          method: 'GET',
+          url: createUrl(programID, labelID, getSelectedCulture())
+        }).then(function successCallback(response) {
+          deferred.resolve(angular.fromJson(response.data)[labelID]);
+        }, function errorCallback(response) {
+          deferred.reject(response);
         });
+        return deferred.promise;
       }
     };
 
+    var createUrl = function(programID, labelID, culture) {
+      return '../../resources/' + programID + '/' + programID + '.' + culture + '.json';
+    };
     return itemdictionaryService;
   }
 

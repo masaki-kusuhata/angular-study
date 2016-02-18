@@ -9,8 +9,7 @@
 
   angular
     .module('angularstudy.components.test1', [
-      'angularstudy.service.itemdictionary',
-      'angularstudy.directive.label',
+      'angularstudy.components.biLabel',
       'ngCookies'
     ])
     .component('test1Controller', {
@@ -20,13 +19,12 @@
     });
 
   Test1Controller.$inject = [
-    'ItemDictionaryService',
     '$cookies'
   ];
 
   var ctrl;
 
-  function Test1Controller(ItemDictionaryService, $cookies) {
+  function Test1Controller($cookies) {
     console.log('Test1Controller Constructor');
     ctrl = this;
   }
